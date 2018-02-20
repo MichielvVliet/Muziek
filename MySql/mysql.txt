@@ -1,0 +1,84 @@
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+CREATE DATABASE muziek; 
+
+DROP TABLE IF EXISTS `tblacl`;
+CREATE TABLE `tblacl` (
+  `userId` int(11) NOT NULL,
+  `recht` varchar(150) NOT NULL,
+  `toegewezen` char(4) NOT NULL DEFAULT '0000'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+INSERT INTO `tblacl` (`userId`, `recht`, `toegewezen`) VALUES
+(1,	'Artiesten',	'1111'),
+(1,	'Albums',	'1111'),
+(1,	'Tracks',	'1111');
+
+DROP TABLE IF EXISTS `tblalbum`;
+CREATE TABLE `tblalbum` (
+  `albumId` int(11) NOT NULL AUTO_INCREMENT,
+  `artiestId` int(11) NOT NULL,
+  `albumNaam` text NOT NULL,
+  `Jaar` int(11) NOT NULL,
+  `albumGenre` char(1) DEFAULT NULL,
+  PRIMARY KEY (`albumId`),
+  KEY `JaarArtiest` (`Jaar`,`artiestId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS `tblartiest`;
+CREATE TABLE `tblartiest` (
+  `artiestId` int(11) NOT NULL AUTO_INCREMENT,
+  `artiestNaam` varchar(255) NOT NULL,
+  `artiestInfo` text NOT NULL,
+  `artiestGenre` varchar(50) NOT NULL,
+  PRIMARY KEY (`artiestId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `tblleden`;
+CREATE TABLE `tblleden` (
+  `ledenId` int(11) NOT NULL AUTO_INCREMENT,
+  `artiestId` int(11) NOT NULL,
+  `ledenNaam` varchar(150) NOT NULL,
+  `Instrument` varchar(150) NOT NULL,
+  `ledenStart` int(4) NOT NULL,
+  `ledenStop` int(4) NOT NULL,
+  PRIMARY KEY (`ledenId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `tblsessions`;
+CREATE TABLE `tblsessions` (
+  `sessionId` int(11) NOT NULL AUTO_INCREMENT,
+  `sessionUser` int(11) NOT NULL,
+  `sessionSession` char(255) NOT NULL,
+  `sessionAgent` char(255) NOT NULL,
+  PRIMARY KEY (`sessionId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `tbltrack`;
+CREATE TABLE `tbltrack` (
+  `trackId` int(11) NOT NULL AUTO_INCREMENT,
+  `albumId` int(11) NOT NULL,
+  `trackTitel` varchar(255) NOT NULL,
+  `trackLyrics` text NOT NULL,
+  `trackSong` text NOT NULL,
+  `trackPos` int(2) NOT NULL,
+  PRIMARY KEY (`trackId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `tblusers`;
+CREATE TABLE `tblusers` (
+  `userId` int(11) NOT NULL AUTO_INCREMENT,
+  `userName` varchar(50) NOT NULL,
+  `userfName` varchar(50) NOT NULL,
+  `userlName` varchar(50) NOT NULL,
+  `userEmail` varchar(100) NOT NULL,
+  `userPassword` varchar(100) NOT NULL,
+  PRIMARY KEY (`userId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+INSERT INTO `tblusers` (`userId`, `userName`, `userfName`, `userlName`, `userEmail`, `userPassword`) VALUES
+(1,	'idsvi',	'fName',	'lName',	'fName@lName.com',	'$2y$10$I8XJaeeqSTIy4r6/hKCJEOZVU6GwfEJxjHvDY/Woc0cCrPgoHAwJK');

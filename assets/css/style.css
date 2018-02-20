@@ -1,0 +1,490 @@
+:root {
+	/* Deze kleur wordt gebruikt voor:
+	 * - achtergrond header
+	 * - tekstkleur van de buttons
+	 * - tekstkleur van de invoervelden van de formulieren */
+	--accentkleur1: #0F1826;
+
+	/* Deze kleur wordt gebruikt voor:
+	 * - achtergrond van de body
+	 * - achtergrond paging (is dit echt nodig?)
+	 * - tekstkleur van de header */
+	--accentkleur2: #5D718F;
+
+	/* Deze kleur wordt gebruikt voor:
+	 * - achtergrond van de sidebar
+	 * - achtergrond van de formulieren */
+	--accentkleur3: #2A313C;
+
+	/* Deze kleur wordt gebruikt voor:
+	 * - tekstkleur van de sidebar
+	 * - tekstkleur van de body
+	 * - tekstkleur van de paging
+	 * - achtergrond van de invoervelden van de formulieren */
+	--accentkleur4: #FFFFE6;
+
+	/* Deze kleur wordt gebruikt voor:
+	 * - achtergrond van de buttons */
+	--accentkleur5: #01DF01;
+
+	/* Deze kleur wordt gebruikt voor:
+	 * - achtergrond voor de fouten en de randkleur voor de velden */
+	--accentkleur6: #FF3333;
+
+	--hoogteHeader: 50px;
+	--breedteUserFormulier: 360px;
+	--hoogteUserFormulier: 350px;
+	--breedteformulier: 520px;
+	--hoogteformulier: 400px;
+	--breedteinvoer: 300px;
+	--hoogteinvoer: 20px;
+	--breedteinvoernummer: 25px;
+	--breedteinvoertitel: 300px;
+	--breedteinvoertijd: 40px;
+	--standaardPadding: 5px 10px;
+	--marginformulier: 10% 25%;
+	--standaardborderradius: 15px;
+	--floatlinksborderradius: 2px;
+	--standaardfontsizemenu: 17px;
+	--hoogtearea: 200px;
+	--standaardfont: Comfortaa;
+	--breedteLeden: 15%;
+	--fontH2Formulier: 16px;
+}
+
+body {
+	margin: 5px;
+	font-family: var(--standaardfont);
+	background-color: var(--accentkleur2);
+	color: var(--accentkleur4);
+}
+
+.wrapper {
+	display: grid;
+	grid-gap: 1em;
+	grid-template-areas:
+		"header"
+		"sidebar"
+		"content"
+		"footer"
+}
+
+.header {
+	position: fixed;
+	width: 100%;
+	vertical-align: middle;
+	height: var(--hoogteHeader);
+	font-weight: bold;
+	grid-area: header;
+}
+
+.rood a{
+	color: var(--accentkleur6);
+}
+
+.sidebar {
+	font-size: var(--standaardfontsizemenu);
+	background-color: var(--accentkleur3);
+	color: var(--accentkleur4);
+	margin-top: var(--hoogteHeader);
+	grid-area: sidebar;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	grid-area: footer;
+}
+
+.content {
+	background-color: var(--accentkleur2);
+	color: var(--accentkleur4);
+	margin-top: var(--hoogteHeader);
+	grid-area: content;
+}
+
+.tracklist li {
+	list-style:none;
+	font-size: 14px;
+	color: var(--accentkleur4);
+}
+
+.paging {
+	text-decoration: none;
+	color: var(--accentkleur4);
+	font-size: 12px;
+	padding: 2px;
+	margin-left: 5px;
+	border: 1px solid var(--accentkleur4);
+	border-radius: 2px;
+	float: left;
+}
+
+.leden ul li {
+	list-style:none;
+	display: inline-block;
+	width: var(--breedteLeden);
+/*	padding: 0px;					*/
+/*	margin: 0px 5px 0px 0px;		*/
+}
+
+.float-rechts, 
+.float-rechts a {
+	text-decoration: none;
+	color: var(--accentkleur4);
+	font-size: 14px;
+	padding: 2px;
+	margin-right: 5px;
+	float: right;
+}
+
+.float-links, 
+.float-links a {
+	text-decoration: none;
+	color: var(--accentkleur4);
+	font-size: 14px;
+	padding: 2px;
+	margin-right: 5px;
+	border-radius: var(--floatlinksborderradius);
+	float: left;
+}
+
+img.left { 
+	float:left; 
+	margin: 0.5em 1em 1em 0.5em; 
+}
+
+article.clear-left {
+	clear: left;
+	border: 2px;
+	border-radius: 2px;
+}
+
+.figure {
+	float: left;
+	width: 250px;
+	height: 300px;
+	border: thin solid; 
+	border-radius: 5px;
+	margin: 0.1em;
+  	padding: 0.5em;
+}
+
+.figure p {
+	text-align: center;
+}
+
+.error-lijst {
+	font-size: 12px;
+	width: 250px;
+	color: var(--accentkleur4);
+	border: 1px solid;
+	border-radius: var(--standaardborderradius);
+	background-color: var(--accentkleur6);
+	margin: 0% 25%;
+}
+
+.error-lijst ul li {
+	list-style:none;
+}
+
+.error-veld {
+	border: 2px solid var(--accentkleur6);
+}
+
+.text-centered {
+	font-size: 12px;
+	font-weight: bold;
+	color: var(--accentkleur4);
+	border: 1px solid; 
+	border-radius: 5px;
+	padding: 2px;
+}
+
+.scaled {
+	width: 95%;
+	height: 95%;
+}
+
+
+.box {
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.header,
+.footer {
+	background-color: var(--accentkleur1);
+	color: var(--accentkleur2);
+	border-radius: 2px;
+}
+
+.header a {
+	color: var(--accentkleur2);
+	float: right;    
+	text-decoration: none;
+	font-size: var(--standaardfontsizemenu);
+	width: auto;
+	margin: 0px 15px;
+	padding: var(--standaardPadding);
+}
+
+.header ul li {
+	float: left;
+	display: inline;
+	list-style:none;
+}
+
+/* Hier worden de kleuren van het menu omgedraaid, alleen voor het effect */
+.header li:hover,
+.header a:hover, 
+.float-rechts a:hover {
+	background-color: var(--accentkleur2);
+	color: var(--accentkleur1);
+}
+
+.sidebarmenu li { 
+	list-style:none;
+	display: inline;
+}
+
+.sidebarmenu a { 
+	color: var(--accentkleur4);
+	text-decoration: none;
+	font-size: 10px;
+	margin: 10px;
+}
+
+.sidebarmenu a:hover { 
+	background-color: var(--accentkleur4);
+	color: var(--accentkleur3);
+	font-size: 15px;
+}
+
+.button-send {
+	font-family: var(--standaardfont);
+	font-size: 15px;
+	height: 28px;
+	width: 100%;
+	border: none;
+	border-radius: var(--standaardborderradius);
+	margin-top: 10px;
+	background-color: var(--accentkleur5);
+	color: var(--accentkleur1);
+	cursor: pointer;
+}
+
+.button-addImage {
+	font-family: var(--standaardfont);
+	font-size: 12px;
+	height: 20px;
+	width: 100%;
+	border: none;
+	border-radius: var(--standaardborderradius);
+	margin-top: 10px;
+	background-color: var(--accentkleur2);
+	color: var(--accentkleur1);
+	cursor: pointer;
+}
+
+.rood a{
+	color: var(--accentkleur6);
+}
+
+.form-user {
+	width: var(--breedteUserFormulier);
+	height:  var(--hoogteUserFormulier);
+	padding: var(--standaardPadding);
+	margin: var(--marginformulier);
+	border-radius: var(--standaardborderradius);
+	background-color: var(--accentkleur3);
+	color: var(--accentkleur4);
+	text-align: center; 
+}
+
+.form-user h2 {
+	font-size: var(--fontH2Formulier);
+}
+
+.form-invoer {
+	width: var(--breedteformulier);
+	height:  var(--hoogteformulier);
+	padding: var(--standaardPadding);
+	margin: var(--marginformulier);
+	border-radius: var(--standaardborderradius);
+	background-color: var(--accentkleur3);
+	color: var(--accentkleur4);
+	text-align: center; 
+}
+
+.form-invoer h2 {
+	font-size: var(--fontH2Formulier);
+}
+
+.text-center {
+	text-align: center;
+}
+
+.inputveld{
+	font-family: var(--standaardfont);
+	font-size: 14px;
+	width: var(--breedteinvoer);
+	height: var(--hoogteinvoer);
+	border-radius: var(--standaardborderradius);
+	padding: var(--standaardPadding);
+	margin: 3px;
+	background-color: var(--accentkleur4);
+	color: var(--accentkleur1);
+}
+
+.inputarea{
+	font-family: var(--standaardfont);
+	font-size: 12px;
+	width: var(--breedteinvoer);
+	height: var(--hoogtearea);
+	border-radius: var(--standaardborderradius);
+	padding: var(--standaardPadding);
+	margin: 3px;
+	background-color: var(--accentkleur4);
+	color: var(--accentkleur1);
+}
+
+.input-nr {
+	display: inline;
+	font-family: var(--standaardfont);
+	font-size: 14px;
+	width: var(--breedteinvoernummer);
+	height: var(--hoogteinvoer);
+	border-radius: var(--standaardborderradius);
+	padding: var(--standaardPadding);
+	margin: 3px;
+	background-color: var(--accentkleur4);
+	color: var(--accentkleur1);
+	text-align: left;
+}
+
+.input-titel {
+	display: inline;
+	font-family: var(--standaardfont);
+	font-size: 14px;
+	width: var(--breedteinvoertitel);
+	height: var(--hoogteinvoer);
+	border-radius: var(--standaardborderradius);
+	padding: var(--standaardPadding);
+	margin: 3px;
+	background-color: var(--accentkleur4);
+	color: var(--accentkleur1);
+	text-align: left;
+}
+
+.input-tijd {
+	display: inline;
+	font-family: var(--standaardfont);
+	font-size: 14px;
+	width: var(--breedteinvoertijd);
+	height: var(--hoogteinvoer);
+	border-radius: var(--standaardborderradius);
+	padding: var(--standaardPadding);
+	margin: 3px;
+	background-color: var(--accentkleur4);
+	color: var(--accentkleur1);
+	text-align: left;
+}
+
+.dropdown {
+	font-family: var(--standaardfont);
+	font-size: 14px;
+	width: 324px;
+	height: 40px;
+	border-radius: var(--standaardborderradius);
+	padding: var(--standaardPadding);
+	margin: 3px;
+	background-color: var(--accentkleur4);
+	color: var(--accentkleur1);
+}
+
+.scrollable {
+	overflow: auto;
+	max-height: 95%;
+}
+
+@media only screen  and (min-width: 360px) {
+	.wrapper {
+		grid-gap: 2px;
+		grid-template-columns: 1fr 4fr;
+		grid-template-areas:
+			"header		header"
+			"sidebar	content"
+			"footer		footer";
+	}
+}
+
+@media only screen and (max-width: 360px) {
+:root {
+	--breedteUserFormulier: 240px;
+	--hoogteUserFormulier: 350px;
+	--breedteformulier: 240px;
+	--hoogteformulier: 400px;
+	--standaardPadding: 5px 5px;
+	--marginformulier: 5px 5px;
+	--standaardborderradius: 10px;
+	--standaardfontsizemenu: 14px;
+	--breedteinvoer: 175px;
+	--hoogteinvoer: 12px;
+	--standaardfont: Tahoma;
+	--hoogteHeader: 150px;
+	--breedteLeden: 25%;
+	--breedteinvoernummer: 10px;
+	--breedteinvoertitel: 100px;
+	--breedteinvoertijd: 20px;
+	--fontH2Formulier: 12px;
+}
+
+	.wrapper {
+		grid-template-areas:
+		"header"
+		"sidebar"
+		"content"
+		"footer";
+	}
+
+	.inputveld {
+		margin: 1% 5%;
+	}
+	
+	.dropdown {
+		width: 200px;
+		height: 40px;
+		margin: 1% 5%;
+	}
+}
+
+@media only screen and (max-device-width: 750px) {
+:root {
+	--breedteUserFormulier: 300px;
+	--hoogteUserFormulier: 350px;
+	--breedteformulier: 420px;
+	--hoogteformulier: 400px;
+	--standaardPadding: 5px 5px;
+	--marginformulier: 5px 5px;
+	--standaardborderradius: 10px;
+	--standaardfontsizemenu: 12px;
+	--breedteinvoer: 175px;
+	--hoogteinvoer: 20px;
+	--standaardfont: Arial;
+	--hoogteHeader: 75px;
+	--breedteLeden: 20%;
+	--breedteinvoernummer: 15px;
+	--breedteinvoertitel: 250px;
+	--breedteinvoertijd: 25px;
+	--fontH2Formulier: 12px;
+
+	.wrapper {
+		grid-template-areas:
+		"header"
+		"sidebar"
+		"content"
+		"footer";
+	}
+}
